@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Music App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+    <script src="javas.js"></script>
+<body>
+    <h1>GANNA MUSIC</h1>
+    <center><button type="button" id="detail"class="btn1">DETAIL</button></center>
+    <main>
+        <div class="a song">a</div>
+        <div class="b song">b</div>
+        <div class="c song">c</div>
+        <div class="d song">d</div>
+        <div class="e song">e</div>
+        <div class="f song">f</div>
+        <div class="g song">g</div>
+        <div class="h song">h</div>
+        <div class="i song">i</div>
+    </main>
+
+
+   <script>
+        var divlength=document.querySelectorAll('.song').length;
+        console.log(divlength);
+        for(var i=0;i<divlength;i++)
+        {
+            var demo=document.querySelectorAll('.song')[i].addEventListener('click',playsong);
+            var demo=document.querySelectorAll('.song')[i].addEventListener('dblclick',pausesong);
+        }
+        var song1=new Audio();//audio is a object
+        song1.src="m1.mp3";
+        var song2=new Audio();//audio is a object
+        song2.src="m2.mp3";
+        var song3=new Audio();//audio is a object
+        song3.src="m3.mp3";
+        var song4=new Audio();//audio is a object
+        song4.src="m3.mp3";
+        var song5=new Audio();//audio is a object
+        song5.src="m2.mp3";
+        var song6=new Audio();//audio is a object
+        song6.src="m3.mp3";
+        var song7=new Audio();//audio is a object
+        song7.src="m1.mp3";
+        var song8=new Audio();//audio is a object
+        song8.src="m2.mp3";
+        var song9=new Audio();//audio is a object
+        song9.src="m3.mp3";
+        function playsong()
+        {
+            var songId=this.innerHTML;
+            console.log(songId);
+            switch(songId)
+            {
+                case "a":
+                    song1.play();
+                    break;
+                    case "b":
+                    song2.play();
+                    break;
+                    case "c":
+                    song3.play();
+                    break;
+                    case "d":
+                    song4.play();
+                    break;
+                    case "e":
+                    song5.play();
+                    break;
+                    case "f":
+                    song6.play();
+                    break;
+                    case "g":
+                    song7.play();
+                    break;
+                    case "h":
+                    song8.play();
+                    break;
+                    case "i":
+                    song9.play();
+                    break;
+                    default:
+                        console.log("wrong output");
+                        break;
+            }
+
+
+        }
+        function pausesong()
+        {
+            var songId = this.innerHTML;
+ console.log(songId);
+            switch(songId)
+            {
+                case "a":
+                    song1.pause();
+                    break;
+                    case "b":
+                    song2.pause();
+                    break;
+                    case "c":
+                    song3.pause();
+                    break;
+                    case "d":
+                    song4.pause();
+                    break;
+                    case "e":
+                    song5.pause();
+                    break;
+                    case "f":
+                    song6.pause();
+                    break;
+                    case "g":
+                    song7.pause();
+                    break;
+                    case "h":
+                    song8.pause();
+                    break;
+                    case "i":
+                    song9.pause();
+                    break;
+                    default:
+                        console.log("wrong output");
+                        break;
+            }
+        }
+
+    </script>
+
+
+
+<center><button type="button" style=color:aqua onclick="loadXMLDoc()">Actor details</button></center>
+<br><br>
+<table id="demo"></table>
+
+<script>
+function loadXMLDoc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xmlhttp.open("GET", "cd.xml", true);
+  xmlhttp.send();
+}
+function myFunction(xml) {
+    var i;
+    var xmlDoc = xml.responseXML;
+    var table="<tr><th>Artist</th><th>Title</th></tr>";
+    var x = xmlDoc.getElementsByTagName("CD");
+    for (i = 0; i <x.length; i++) { 
+      table += "<tr><td>" +
+      x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+      "</td><td>" +
+      x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+      "</td></tr>";
+    }
+    document.getElementById("demo").innerHTML = table;
+  }
+</script>-->
+</body>
+</html>
